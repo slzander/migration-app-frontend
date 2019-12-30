@@ -1,9 +1,12 @@
 import React from 'react'
 import L from 'leaflet'
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import 'leaflet/dist/leaflet.css'
+import sparrow from '../images/sparrow.png'
 
-export default class Map extends React.Component {
+export default class ViewMap extends React.Component {
     
+
     componentDidMount(){
         const map = L.map('map', {
             center: [0, -80],
@@ -20,13 +23,12 @@ export default class Map extends React.Component {
         // why is marker not working?
 
         const birdIcon = L.icon({
-            iconUrl: '../sparrow.png',
-            iconsize: [1500, 1500],
-            iconAnchor: [1, 1],
-            popupAnchor: [-3, -76]
+            iconUrl: sparrow,
+            iconSize: [95, 95],
+            iconAnchor: [1, 1]
         })
 
-        L.marker([80, -80], { icon: birdIcon }).addTo(map)
+        L.marker([0, -80.0], { icon: birdIcon }).addTo(map)
     }
 
     render(){

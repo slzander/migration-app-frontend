@@ -1,8 +1,9 @@
 import React from 'react'
 import './App.css'
 import * as d3 from 'd3';
-import data from './sandpiper-test.csv'
-import Map from './components/Map'
+// import data from './sandpiper-test.csv'
+import ViewMap from './components/ViewMap'
+import CardContainer from './components/CardContainer'
 
 export default class App extends React.Component {
   state = {
@@ -10,8 +11,9 @@ export default class App extends React.Component {
   }
   
   componentDidMount(){
-    d3.csv(data)
-      .then(data => console.log(data))
+    fetch('http://localhost:3000/birds')
+      .then(response => response.json())
+      .then(birdData => this.setState({ birdData }))
   }
 
   render(){
@@ -29,7 +31,9 @@ export default class App extends React.Component {
               <li><button>About</button></li>
           </ul>
         </header>
-        <Map
+        <CardContainer
+          birdData={this.state.birdData} />
+        <ViewMap
           birdData={this.state.birdData} />
       </div>
     )
