@@ -1,0 +1,46 @@
+/*
+Error: Invalid property: "Backtrace:" (no value).
+        on line 4 of ./app.css
+
+1: /*
+2: Errno::ENOENT: No such file or directory @ rb_sysopen - app.css
+3: 
+4: Backtrace:
+5: /Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:454:in `read'
+6: /Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:454:in `update_stylesheet'
+7: /Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+8: /Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `each'
+9: /Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+
+Backtrace:
+./app.css:4
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/engine.rb:755:in `parse_property'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/engine.rb:707:in `parse_property_or_rule'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/engine.rb:666:in `parse_line'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/engine.rb:539:in `build_tree'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/engine.rb:558:in `block in append_children'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/engine.rb:557:in `each'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/engine.rb:557:in `append_children'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/engine.rb:417:in `_to_tree'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:294:in `watch'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin.rb:109:in `method_missing'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:358:in `watch_or_update'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/bin/sass:23:in `load'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/bin/sass:23:in `<main>'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/bin/ruby_executable_hooks:24:in `eval'
+/Users/staceyzander/.rvm/gems/ruby-2.6.1/bin/ruby_executable_hooks:24:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid property: \"Backtrace:\" (no value).\A         on line 4 of ./app.css\A \A 1: /*\A 2: Errno::ENOENT: No such file or directory @ rb_sysopen - app.css\A 3: \A 4: Backtrace:\A 5: /Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:454:in `read'\A 6: /Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:454:in `update_stylesheet'\A 7: /Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'\A 8: /Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `each'\A 9: /Users/staceyzander/.rvm/gems/ruby-2.6.1/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'"; }

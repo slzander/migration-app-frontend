@@ -1,19 +1,33 @@
 import React from 'react'
-import './App.css'
-import * as d3 from 'd3';
-// import data from './sandpiper-test.csv'
+import './App.scss'
+// import * as d3 from 'd3';
 import ViewMap from './components/ViewMap'
 import CardContainer from './components/CardContainer'
+const baseURL = 'http://localhost:3000'
 
 export default class App extends React.Component {
   state = {
-    birdData: []
+    birdData: [],
+    mappedBirds: []
   }
   
   componentDidMount(){
-    fetch('http://localhost:3000/birds')
+    fetch(`${baseURL}/birds`)
       .then(response => response.json())
       .then(birdData => this.setState({ birdData }))
+  }
+
+  addBirdToMap = (bird) => {
+    if (!this.state.mappedBirds.incldude(bird)){
+      this.setState({ mappedBirds: [...this.state.mappedBirds, bird] })
+    }
+  }
+
+  removeBirdFromMap = (bird) => {
+    const mappedBirds = this.state.mappedBirds.filter(mappedBird => {
+      return mappedBird !== bird
+    })
+    this.setState({ mappedBirds })
   }
 
   render(){
@@ -31,10 +45,13 @@ export default class App extends React.Component {
               <li><button>About</button></li>
           </ul>
         </header>
-        <CardContainer
-          birdData={this.state.birdData} />
-        <ViewMap
-          birdData={this.state.birdData} />
+        <main>
+          <CardContainer
+            birdData={this.state.birdData}
+            birdAction={this.addBirdToMap} />
+          <ViewMap
+            mappedBirds={this.state.mappedBirds} />
+        </main>
       </div>
     )
     }

@@ -1,14 +1,18 @@
 import React from 'react'
+import BirdCard from './BirdCard'
 
-export default function CardContainer({birdData}) {
+export default function CardContainer({birdData, birdAction }) {
     const birdsArray = birdData.map(bird => {
-        return <BirdCard />
+        return <BirdCard
+            key={bird.id}
+            bird={bird}
+            birdAction={birdAction} />
     })
     
     return(
-        <div id='cardContainer'>
+        <div id='card-container'>
             <h1>Birds</h1>
-            <div>
+            <div id='cards-div'>
                 {birdsArray}
             </div>
         </div>
