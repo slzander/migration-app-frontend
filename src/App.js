@@ -18,7 +18,7 @@ export default class App extends React.Component {
   }
 
   addBirdToMap = (bird) => {
-    if (!this.state.mappedBirds.incldude(bird)){
+    if (!this.state.mappedBirds.includes(bird)){
       this.setState({ mappedBirds: [...this.state.mappedBirds, bird] })
     }
   }
