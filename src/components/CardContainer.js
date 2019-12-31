@@ -2,7 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 import BirdCard from './BirdCard'
 
-export default function CardContainer({birdData, birdAction, filterChange, selectedOption }) {
+export default function CardContainer({ birdData, birdAction, filterChange, selectedOption }) {
     const birdsArray = birdData.map(bird => {
         return <BirdCard
             key={bird.id}

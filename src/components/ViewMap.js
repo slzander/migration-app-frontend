@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css'
 import sparrow from '../images/sparrow.png'
 import sandpiper from '../images/sandpiper.png'
 
-export default function ViewMap ({i, mappedBirds}) {
+export default function ViewMap ({ mappedBirds }) {
     const sparrowIcon =  L.icon({
             iconUrl: sparrow,
             iconSize: [20, 20],
