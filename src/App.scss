@@ -53,8 +53,8 @@
 }
 
 #map {
-  width: 720px;
-  height: 700px;
+  width: 40rem;
+  height: 50rem;
 }
 
 header {
@@ -62,7 +62,6 @@ header {
   flex-direction: row;
   justify-content: space-around;
   overflow: hidden;
-  // position: fixed;
   top: 0;
   width: 100%;
   z-index: 10;

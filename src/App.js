@@ -8,7 +8,9 @@ const baseURL = 'http://localhost:3000'
 export default class App extends React.Component {
   state = {
     birdData: [],
-    mappedBirds: []
+    mappedBirds: [],
+    selectedOption: null,
+    i: 0
   }
   
   componentDidMount(){
@@ -30,6 +32,20 @@ export default class App extends React.Component {
     this.setState({ mappedBirds })
   }
 
+  filterChange = (selectedOption) => {
+    this.setState({ selectedOption })
+  }
+
+  filterBirds = () => {
+    if (this.state.selectedOption){
+      return this.state.birdData.filter(bird => {
+        return bird.name === this.state.selectedOption.label
+      })
+    } else {
+      return this.state.birdData
+    }
+  }
+
   render(){
     return(
       <div className="App">
@@ -47,10 +63,13 @@ export default class App extends React.Component {
         </header>
         <main>
           <CardContainer
-            birdData={this.state.birdData}
-            birdAction={this.addBirdToMap} />
+            birdData={this.filterBirds()}
+            birdAction={this.addBirdToMap}
+            filterChange={this.filterChange}
+            selectedOption={this.state.selectedOption} />
           <ViewMap
-            mappedBirds={this.state.mappedBirds} />
+            mappedBirds={this.state.mappedBirds}
+            i={this.state.i} />
         </main>
       </div>
     )
