@@ -10,7 +10,8 @@ export default class App extends React.Component {
     birdData: [],
     mappedBirds: [],
     selectedOption: null,
-    month: 1
+    birdLocation: [0,0],
+    month: 0
   }
   
   componentDidMount(){
@@ -22,12 +23,19 @@ export default class App extends React.Component {
   }
 
   changeMonth = () => {
-    if (this.state.month < 12){
+    if (this.state.month < 11){
     this.setState({ month: this.state.month + 1})
     } else {
       this.setState({ month: 1 })
     }
   }
+
+  // setBirdLocation = (bird) => {
+  //   console.log(bird.locations[this.state.month].latitude)
+  //   this.setState({ birdLocation:
+  //     [bird.locations[this.state.month].latitude, 
+  //     bird.locations[this.state.month].latitude] })
+  // }
 
   addBirdToMap = (bird) => {
     if (!this.state.mappedBirds.includes(bird)){
@@ -78,7 +86,8 @@ export default class App extends React.Component {
             filterChange={this.filterChange}
             selectedOption={this.state.selectedOption} />
           <ViewMap
-            mappedBirds={this.state.mappedBirds} />
+            mappedBirds={this.state.mappedBirds}
+            month={this.state.month} />
         </main>
       </div>
     )
