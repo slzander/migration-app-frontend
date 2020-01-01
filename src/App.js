@@ -1,8 +1,11 @@
 import React from 'react'
 import './App.scss'
+import L from 'leaflet'
 // import * as d3 from 'd3';
 import ViewMap from './components/ViewMap'
 import CardContainer from './components/CardContainer'
+import sparrow from './images/sparrow.png'
+import sandpiper from './images/sandpiper.png'
 const baseURL = 'http://localhost:3000'
 
 export default class App extends React.Component {
@@ -10,7 +13,6 @@ export default class App extends React.Component {
     birdData: [],
     mappedBirds: [],
     selectedOption: null,
-    birdLocation: [0,0],
     month: 0
   }
   
@@ -30,11 +32,23 @@ export default class App extends React.Component {
     }
   }
 
-  // setBirdLocation = (bird) => {
-  //   console.log(bird.locations[this.state.month].latitude)
-  //   this.setState({ birdLocation:
-  //     [bird.locations[this.state.month].latitude, 
-  //     bird.locations[this.state.month].latitude] })
+  // createIcon = (bird) => {
+  //   if (bird.name === 'Upland Sandpiper'){
+  //     this.setState({ birdIcon: L.icon({
+  //       iconUrl: sandpiper,
+  //       iconSize: [20, 20],
+  //       iconAnchor: [30, 30]
+  //       })
+  //     })
+  //   } else {
+  //     this.setState({ birdIcon: L.icon({
+  //       iconUrl: sparrow,
+  //       iconSize: [20, 20],
+  //       iconAnchor: [30, 30]
+  //       })
+  //     })
+  //   }
+  //   return this.state.birdIcon
   // }
 
   addBirdToMap = (bird) => {
@@ -87,7 +101,8 @@ export default class App extends React.Component {
             selectedOption={this.state.selectedOption} />
           <ViewMap
             mappedBirds={this.state.mappedBirds}
-            month={this.state.month} />
+            month={this.state.month}
+            createIcon={this.createIcon} />
         </main>
       </div>
     )
