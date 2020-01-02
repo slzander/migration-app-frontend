@@ -8,11 +8,12 @@ export default function Header ({ changeAboutClicked }) {
                 <h1>Migrate</h1>
             </div>
         </div>
-        <ul>
-            <li><button onClick={changeAboutClicked}>Home</button></li>
+        <button onClick={changeAboutClicked}>Show/Hide About Section</button>
+        {/* <ul>
+            <li></li>
             <li>|</li>
             <li><button onClick={changeAboutClicked}>About</button></li>
-        </ul>
+        </ul> */}
       </header>
     )
 }

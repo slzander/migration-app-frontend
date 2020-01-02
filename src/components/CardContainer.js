@@ -2,15 +2,28 @@ import React from 'react'
 import Select from 'react-select'
 import BirdCard from './BirdCard'
 
-export default function CardContainer({ birdData, birdAction, filterChange, selectedOption, addAllBirds }) {
+export default function CardContainer({ 
+    birdData, 
+    birdAction, 
+    filterChange, 
+    selectedOption, 
+    changeCardColor,
+    addAllBirds, 
+    removeAllBirds, 
+    addFilteredBirds,
+    removeFilteredBirds
+    }) {
+
     const birdsArray = birdData.map(bird => {
         return <BirdCard
             key={bird.id}
             bird={bird}
-            birdAction={birdAction} />
+            birdAction={birdAction}
+            changeCardColor={changeCardColor} />
     })
 
     const birdSpecies = [
+        { label: 'Select All' },
         { label: 'Grasshopper Sparrow' },
         { label: 'Upland Sandpiper' },
         { label: "Swainson's Hawk" },
@@ -20,16 +33,26 @@ export default function CardContainer({ birdData, birdAction, filterChange, sele
     return(
         <div id='card-container'>
             <div id='card-header'>
-                <h1>Birds</h1>
                 <button onClick={addAllBirds}>
                     Add All Birds To Map
                 </button>
+                <button onClick={removeAllBirds}>
+                    Remove All Birds From Map
+                </button>
+                <button onClick={addFilteredBirds}>
+                    Add Filtered Birds To Map
+                </button>
+                <button onClick={removeFilteredBirds}>
+                    Remove Filtered Birds From Map
+                </button>
             </div>
-            <Select
-                options={birdSpecies}
-                value={selectedOption}
-                onChange={filterChange}
-                placeholder='Filter by Species...' />
+            <div id='select-div'>
+                <Select
+                    options={birdSpecies}
+                    value={selectedOption}
+                    onChange={filterChange}
+                    placeholder='Filter by Species...' />
+            </div>
             <div id='cards-div'>
                 {birdsArray}
             </div>

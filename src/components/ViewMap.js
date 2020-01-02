@@ -8,7 +8,7 @@ import buttonGray from '../images/buttonGray.png'
 import buttonYellow from '../images/buttonYellow.png'
 
 
-export default function ViewMap ({ mappedBirds, currentMonth, changePause }) {
+export default function ViewMap ({ mappedBirds, currentMonth, changePause, pauseClicked }) {
     const months = [
         'January',
         'February',
@@ -86,7 +86,9 @@ export default function ViewMap ({ mappedBirds, currentMonth, changePause }) {
             return (
                 <div>
                     <h2>{months[currentMonth]}</h2>
-                    <button onClick={changePause}>Pause</button>
+                <button onClick={changePause}>
+                    {pauseClicked ? 'pause': 'play'}
+                </button>
                 </div>
             )
         }

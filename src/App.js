@@ -15,14 +15,11 @@ export default class App extends React.Component {
     month: 0,
     aboutClicked: false,
     pauseClicked: false,
-    intervalID: 0
-    // cardColor: 'lightblue'
+    intervalID: 0,
+    cardColor: 'lightblue'
   }
   
   componentDidMount(){
-    // this.startMonthChange()
-    // setInterval(this.changeMonth, 1000)
-
     fetch(`${baseURL}/birds`)
       .then(response => response.json())
       .then(birdData => this.setState({ birdData }))
@@ -47,12 +44,12 @@ export default class App extends React.Component {
 
   startMonthChange = () => {
     this.intervalID = setInterval(this.changeMonth, 1000)
-    this.setState({ pauseClicked: false })
+    this.setState({ pauseClicked: true })
   }
 
   stopMonthChange = () => {
     clearInterval(this.intervalID)
-    this.setState({ pauseClicked: true})
+    this.setState({ pauseClicked: false})
   }
 
   changePause = () => {
@@ -67,24 +64,31 @@ export default class App extends React.Component {
     if (!this.state.aboutClicked){
       return <CardContainer
       birdData={this.filterBirds()}
-      birdAction={this.addBirdToMap}
+      birdAction={this.addOrRemoveBird}
       filterChange={this.filterChange}
       selectedOption={this.state.selectedOption}
       changeCardColor={this.changeCardColor}
-      addAllBirds={this.addAllBirds} />
+      addAllBirds={this.addAllBirds}
+      removeAllBirds={this.removeAllBirds}
+      addFilteredBirds={this.addFilteredBirds}
+      removeFilteredBirds={this.removeFilteredBirds} />
     } else {
       return <About />
     }
   }
-
-
-  // changeCardColor = () => {
-  //   if (this.state.cardColor === 'lightblue'){
-  //     this.setState({ cardColor: 'red' })
-  //   } else {
-  //     this.setState({ cardColor: 'lightblue' })
-  //   }
-  // }
+  
+  addOrRemoveBird = (bird) => {
+    if (!this.state.mappedBirds.includes(bird)){
+      if (!this.state.mappedBirds.includes(bird)){
+        this.setState({ mappedBirds: [...this.state.mappedBirds, bird] })
+      }
+    } else {
+      const mappedBirds = this.state.mappedBirds.filter(mappedBird => {
+        return mappedBird !== bird
+      })
+      this.setState({ mappedBirds })
+    }
+  }
 
   addBirdToMap = (bird) => {
     if (!this.state.mappedBirds.includes(bird)){
@@ -103,8 +107,26 @@ export default class App extends React.Component {
     this.setState({ mappedBirds: this.state.birdData })
   }
 
+  removeAllBirds = () => {
+    this.setState({ mappedBirds: [] })
+  }
+
+  addFilteredBirds = () => {
+    this.setState({ mappedBirds: this.filterBirds() })
+    // this.setState({ mappedBirds: [...this.state.mappedBirds, this.filterBirds()] })
+  }
+
+  removeFilteredBirds = () => {
+    console.log(this.state.mappedBirds.includes(this.filterBirds()))
+    this.setState({ mappedBirds: [] })
+  }
+
   filterChange = (selectedOption) => {
-    this.setState({ selectedOption })
+    if(selectedOption.label === 'Select All'){
+      this.setState({ selectedOption: null })
+    } else {
+      this.setState({ selectedOption })
+    }
   }
 
   filterBirds = () => {
@@ -127,7 +149,8 @@ export default class App extends React.Component {
           <ViewMap
             mappedBirds={this.state.mappedBirds}
             currentMonth={this.state.month}
-            changePause={this.changePause} />
+            changePause={this.changePause}
+            pauseClicked={this.state.pauseClicked} />
         </main>
       </div>
     )
