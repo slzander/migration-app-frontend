@@ -33,26 +33,33 @@ export default function CardContainer({
     return(
         <div id='card-container'>
             <div id='card-header'>
-                <button onClick={addAllBirds}>
-                    Add All Birds To Map
-                </button>
-                <button onClick={removeAllBirds}>
-                    Remove All Birds From Map
-                </button>
-                <button onClick={addFilteredBirds}>
-                    Add Filtered Birds To Map
-                </button>
-                <button onClick={removeFilteredBirds}>
-                    Remove Filtered Birds From Map
-                </button>
+                <div className='card-buttons'>
+                    <div id='filter-buttons'>
+                        <button onClick={addFilteredBirds}>
+                            Add Filtered Birds
+                        </button>
+                        <button onClick={removeFilteredBirds}>
+                            Remove Filtered Birds
+                        </button>
+                    </div>
+                    <div id='select-div'>
+                    <Select
+                        options={birdSpecies}
+                        value={selectedOption}
+                        onChange={filterChange}
+                        placeholder='Filter by Species...' />
+                    </div>
+                </div>
+                <div className='card-buttons'>
+                    <button onClick={addAllBirds}>
+                        Add All Birds
+                    </button>
+                    <button onClick={removeAllBirds}>
+                        Remove All Birds
+                    </button>
+                </div>
             </div>
-            <div id='select-div'>
-                <Select
-                    options={birdSpecies}
-                    value={selectedOption}
-                    onChange={filterChange}
-                    placeholder='Filter by Species...' />
-            </div>
+
             <div id='cards-div'>
                 {birdsArray}
             </div>

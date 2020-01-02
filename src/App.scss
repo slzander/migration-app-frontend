@@ -71,16 +71,6 @@ header {
     button {
       margin: 1rem;
     }
-
-  // ul {
-  //   display: flex;
-  //   flex-direction: row;
-  //   list-style-type: none;
-
-  //   li {
-  //     margin-left: 10px;
-  //   }
-  // }
 }
 
 main {
@@ -90,20 +80,30 @@ main {
   
   #card-container {
     background-color: #113661;
+    padding: 1rem;
 
     #card-header {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: space-around;
       padding: 1rem;
 
-      button {
-        padding: 1rem;
+      .card-buttons {
+        display: flex;
+        flex-direction: column;
+        
+        button {
+          padding: 1rem;
+          margin: 0.5rem;
+          border-radius: 8px;
+        }
       }
+
     }
 
     #select-div {
-      width: 28rem;
+      width: 17rem;
+      margin: 0.5rem;
     }
 
     #cards-div {
@@ -115,6 +115,7 @@ main {
       overflow-y: auto;
       // background-color: #113661;
 
+
       .bird-card {
         margin: 5px;
       }
@@ -124,4 +125,18 @@ main {
   #map {
     margin: 10px;
   }
+}
+
+
+#cards-div::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+#cards-div::-webkit-scrollbar:vertical {
+  width: 9px;
+}
+
+#cards-div::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background-color: white;
 }
