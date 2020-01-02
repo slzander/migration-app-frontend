@@ -13,7 +13,8 @@ export default function CardContainer({ birdData, birdAction, filterChange, sele
     const birdSpecies = [
         { label: 'Grasshopper Sparrow' },
         { label: 'Upland Sandpiper' },
-        { label: "Swainson's Hawk" }
+        { label: "Swainson's Hawk" },
+        { label: 'Golden Eagle' }
     ]
 
     return(

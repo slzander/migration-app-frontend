@@ -13,12 +13,15 @@ export default class App extends React.Component {
     mappedBirds: [],
     selectedOption: null,
     month: 0,
-    aboutClicked: false
+    aboutClicked: false,
+    pauseClicked: false,
+    intervalID: 0
     // cardColor: 'lightblue'
   }
   
   componentDidMount(){
-    setInterval(this.changeMonth, 1000)
+    // this.startMonthChange()
+    // setInterval(this.changeMonth, 1000)
 
     fetch(`${baseURL}/birds`)
       .then(response => response.json())
@@ -40,6 +43,24 @@ export default class App extends React.Component {
       this.setState({ aboutClicked: true})
     }
     return this.showView
+  }
+
+  startMonthChange = () => {
+    this.intervalID = setInterval(this.changeMonth, 1000)
+    this.setState({ pauseClicked: false })
+  }
+
+  stopMonthChange = () => {
+    clearInterval(this.intervalID)
+    this.setState({ pauseClicked: true})
+  }
+
+  changePause = () => {
+    if (this.state.pauseClicked){
+      this.stopMonthChange()
+    } else {
+      this.startMonthChange()
+    }
   }
 
   showView = () => {
@@ -106,7 +127,7 @@ export default class App extends React.Component {
           <ViewMap
             mappedBirds={this.state.mappedBirds}
             currentMonth={this.state.month}
-            createIcon={this.createIcon} />
+            changePause={this.changePause} />
         </main>
       </div>
     )
