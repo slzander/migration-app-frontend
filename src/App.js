@@ -165,14 +165,16 @@ export default class App extends React.Component {
     return(
       <div className="App">
         <Header
-          changeAboutClicked={this.changeAboutClicked} />
+          changeAboutClicked={this.changeAboutClicked}
+          mappedBirds={this.state.mappedBirds}
+          currentMonth={this.state.month}
+          changePause={this.changePause}
+          pauseClicked={this.state.pauseClicked} />
         <main>
           {this.showView()}
           <ViewMap
             mappedBirds={this.state.mappedBirds}
-            currentMonth={this.state.month}
-            changePause={this.changePause}
-            pauseClicked={this.state.pauseClicked} />
+            currentMonth={this.state.month} />
         </main>
       </div>
     )

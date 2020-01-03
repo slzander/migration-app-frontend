@@ -9,20 +9,20 @@ import buttonYellow from '../images/buttonYellow.png'
 
 
 export default function ViewMap ({ mappedBirds, currentMonth, changePause, pauseClicked }) {
-    const months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-    ]
+    // const months = [
+    //     'January',
+    //     'February',
+    //     'March',
+    //     'April',
+    //     'May',
+    //     'June',
+    //     'July',
+    //     'August',
+    //     'September',
+    //     'October',
+    //     'November',
+    //     'December'
+    // ]
 
     function showBirds () {
         return mappedBirds.map(bird => {
@@ -85,25 +85,25 @@ export default function ViewMap ({ mappedBirds, currentMonth, changePause, pause
         })
     }
  
-    function showMonth () {
-        if (mappedBirds.length !== 0){
-            return (
-                <div id='show-month-div'>
-                    <h2>{months[currentMonth]}</h2>
-                    <button onClick={changePause}>
-                        {pauseClicked ? 'Stop Migration': 'Start Migration'}
-                    </button>
-                </div>
-            )
-        }
-    }
+    // function showMonth () {
+    //     if (mappedBirds.length !== 0){
+    //         return (
+    //             <div id='show-month-div'>
+    //                 <h2>{months[currentMonth]}</h2>
+    //                 <button onClick={changePause}>
+    //                     {pauseClicked ? 'Stop Migration': 'Start Migration'}
+    //                 </button>
+    //             </div>
+    //         )
+    //     }
+    // }
 
     return(
         <div>
-            <div id='map-header'>
+            {/* <div id='map-header'>
                 <h2>-</h2>
                 {showMonth()}
-            </div>
+            </div> */}
             <Map id='map' center={[10, -80]} zoom={3}>
                 <TileLayer
                     url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'

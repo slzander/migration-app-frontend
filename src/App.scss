@@ -23,17 +23,20 @@ header {
   top: 0;
   width: 100%;
   z-index: 10;
-  background-color: #dad9d7;
+  background-color: #c7c6c4;
   box-shadow: 0 5px 20px -10px #000;
 
   #logo {
     display: flex;
-    margin-left: 10px;
+    margin-left: 20px;
     padding: 0px;
     margin-right: 10px;
 
     h1 {
-      font-size: 40px;
+      font-size: 50px;
+      margin-left: -24px;
+      margin-top: 55px;
+      margin-bottom: 10px;
     }
 
     img {
@@ -41,9 +44,23 @@ header {
     }
   }
 
-  button {
+  #header-buttons {
     margin-right: 3rem;
-    height: 3rem;
+    
+    button {
+      margin-top: 10px;
+      height: 2rem;
+    }
+        
+    #show-month-div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      
+      h2{
+        margin-top: 10px;
+      }
+    }
   }
 }
 
@@ -129,6 +146,9 @@ main {
         margin-left: 2.1rem;
       }
 
+      h3 {
+        margin-top: 0px;
+      }
       .about-titles{
         display: flex;
         flex-direction: row;
@@ -140,9 +160,6 @@ main {
           margin-top: 15px;
         }
 
-        h3 {
-          // margin-top: 0px;
-        }
       }
     }
   }
@@ -151,16 +168,10 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
-    #show-month-div {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
   }
 
   #map {
-    margin: 10px;
+    margin-top: 2rem;
     width: 45rem;
     height: 47rem;
   }
