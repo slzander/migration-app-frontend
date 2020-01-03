@@ -7,7 +7,7 @@ export default function Header ({ changeAboutClicked }) {
         <div id="logo">
             <div id="logo">
                 <img src={flyingBirds} alt='birds' />
-                <h1>Migrate</h1>
+                <h1>M i g r a t e</h1>
             </div>
         </div>
         <button onClick={changeAboutClicked}>Show/Hide About Section</button>

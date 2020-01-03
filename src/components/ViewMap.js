@@ -28,6 +28,7 @@ export default function ViewMap ({ mappedBirds, currentMonth, changePause, pause
         return mappedBirds.map(bird => {
             if (bird.name === 'Upland Sandpiper'){
                 return <Marker 
+                    key={bird.tag}
                     position={[bird.locations[currentMonth].latitude, 
                         bird.locations[currentMonth].longitude]
                     }
@@ -39,7 +40,8 @@ export default function ViewMap ({ mappedBirds, currentMonth, changePause, pause
                     <Popup>{bird.name}<br />{bird.tag}</Popup>
                 </Marker>
             } else if (bird.name === 'Grasshopper Sparrow'){
-                return <Marker 
+                return <Marker
+                    key={bird.tag}
                     position={
                         [bird.locations[currentMonth].latitude, 
                         bird.locations[currentMonth].longitude]
@@ -53,6 +55,7 @@ export default function ViewMap ({ mappedBirds, currentMonth, changePause, pause
                 </Marker>
             } else if (bird.name === 'Golden Eagle'){
                 return <Marker 
+                    key={bird.tag}
                     position={
                         [bird.locations[currentMonth].latitude, 
                         bird.locations[currentMonth].longitude]
@@ -65,7 +68,8 @@ export default function ViewMap ({ mappedBirds, currentMonth, changePause, pause
                     <Popup>{bird.name}<br />{bird.tag}</Popup>
                 </Marker>
             } else {
-                return <Marker 
+                return <Marker
+                    key={bird.tag}
                     position={
                         [bird.locations[currentMonth].latitude, 
                         bird.locations[currentMonth].longitude]
