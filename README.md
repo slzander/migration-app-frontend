@@ -1,5 +1,5 @@
 ## Welcome to Migration Mapper!
-**This app encourages kids to practice writing numbers and counting. Write and Count uses a pre-trained model that extracts features of an image to classify it according to the model.**
+**This is a locational mapping app for researchers who want to be able to visualize annual movements of migratory species for the purpose of data analysis or project presentations.**
 
 Created by Stacey Zander.
 
