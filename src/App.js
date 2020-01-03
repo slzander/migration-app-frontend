@@ -5,7 +5,7 @@ import Header from './components/Header'
 import CardContainer from './components/CardContainer'
 import About from './components/About'
 
-const baseURL = 'http://localhost:3000'
+const baseURL = 'https://migration-mapper.herokuapp.com'
 
 export default class App extends React.Component {
   state = {
@@ -13,7 +13,7 @@ export default class App extends React.Component {
     mappedBirds: [],
     selectedOption: null,
     month: 0,
-    aboutClicked: true,
+    aboutClicked: false,
     pauseClicked: false,
     intervalID: 0
   }
@@ -72,7 +72,6 @@ export default class App extends React.Component {
       birdAction={this.addOrRemoveBird}
       filterChange={this.filterChange}
       selectedOption={this.state.selectedOption}
-      changeCardColor={this.changeCardColor}
       addAllBirds={this.addAllBirds}
       removeAllBirds={this.removeAllBirds}
       addFilteredBirds={this.addFilteredBirds}
@@ -120,13 +119,6 @@ export default class App extends React.Component {
     this.setState({ mappedBirds: [...this.state.mappedBirds, ...this.filterBirds()] })
   }
 
-  // removeFilteredBirds = () => {
-  //   console.log(this.filterBirds())
-  //   if (this.state.mappedBirds.includes(this.filterBirds())){
-  //     this.setState({ mappedBirds: ??? })
-  //   }
-  // }
-
   filterChange = (selectedOption) => {
     if(selectedOption.label === 'Select All'){
       this.setState({ selectedOption: null })
@@ -166,6 +158,7 @@ export default class App extends React.Component {
       <div className="App">
         <Header
           changeAboutClicked={this.changeAboutClicked}
+          aboutClicked={this.state.aboutClicked}
           mappedBirds={this.state.mappedBirds}
           currentMonth={this.state.month}
           changePause={this.changePause}

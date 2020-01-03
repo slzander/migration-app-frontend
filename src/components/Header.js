@@ -2,7 +2,8 @@ import React from 'react'
 import flyingBirds from '../images/flyingBirds.png'
 
 export default function Header ({ 
-    changeAboutClicked, 
+    changeAboutClicked,
+    aboutClicked, 
     mappedBirds, 
     currentMonth, 
     changePause, 
@@ -34,18 +35,29 @@ export default function Header ({
             )
         }
     }
+
+    function showAbout () {
+        if (aboutClicked){
+            return (
+                <button onClick={changeAboutClicked}>Hide About Section</button>
+            )
+        } else {
+            return (
+                <button onClick={changeAboutClicked}>Show About Section</button>
+            )
+        }
+    }
  
     return(
         <header className="App-header">
         <div id="logo">
             <div id="logo">
                 <img src={flyingBirds} alt='birds' />
-                {/* <h1>M i g r a t i o n M a p p e r</h1> */}
                 <h1>Migration Mapper</h1>
             </div>
         </div>
         <div id='header-buttons'>
-            <button onClick={changeAboutClicked}>Show/Hide About Section</button>
+            {showAbout()}
             {showMonth()}
         </div>
       </header>

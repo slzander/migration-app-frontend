@@ -7,7 +7,6 @@ export default function CardContainer({
     birdAction, 
     filterChange, 
     selectedOption, 
-    changeCardColor,
     addAllBirds, 
     removeAllBirds, 
     addFilteredBirds,
@@ -50,9 +49,6 @@ export default function CardContainer({
                         <button onClick={addFilteredBirds}>
                             Add Filtered Birds
                         </button>
-                        {/* <button onClick={removeFilteredBirds}>
-                            Remove Filtered Birds
-                        </button> */}
                     </div>
                 </div>
                 <div className='card-buttons'>

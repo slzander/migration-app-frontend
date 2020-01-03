@@ -17,9 +17,8 @@ export default function About () {
                     <h2>Swainson's Hawks</h2>
                 </div>
                 <h3>Buteo swainsoni</h3>
-                {/* <p>Principal Investigator: Michael N. Kochert</p> */}
                 <p>Study dates: 7/29/1995-6/24/1998</p>
-                <p>Average Annual Migration: 25,456km</p>
+                <p>Average Annual Migration: 15,817 mi</p>
                 <img src={hawk} alt='hawk'/>
             </div>
             <div className='about-cards'>
@@ -28,9 +27,8 @@ export default function About () {
                     <h2>Upland Sandpiper</h2>
                 </div>
                 <h3>Bartramia longicauda</h3>
-                {/* <p>Principal Investigator: Rosalind Renfrow</p> */}
                 <p>Study dates: 4/24/2016-7/17/2019</p>
-                <p>Average Annual Migration: 25,456km</p>
+                <p>Average Annual Migration: 11,392 mi</p>
                 <img src={sandpiper} alt='sandpiper'/>
             </div>
             <div className='about-cards'>
@@ -39,9 +37,8 @@ export default function About () {
                     <h2>Grasshopper Sparrow</h2>
                 </div>
                 <h3>Ammodramus savannarum</h3>
-                {/* <p>Principal Investigator: Rosalind Renfrow</p> */}
                 <p>Study dates: 5/13/2015-5/11/2016</p>
-                <p>Average Annual Migration: 25,456km</p>
+                <p>Average Annual Migration: 3,206 mi</p>
                 <img src={sparrow} alt='sparrow'/>
             </div>
             <div className='about-cards'>
@@ -50,9 +47,8 @@ export default function About () {
                     <h2>Golden Eagles</h2>
                 </div>
                 <h3>Aquila chrysaetos</h3>
-                {/* <p>Principal Investigator: Jeff P. Smith</p> */}
                 <p>Study dates: 10/2/1999-10/17/2009</p>
-                <p>Average Annual Migration: 25,456km</p>
+                <p>Average Annual Migration: 5,984 mi</p>
                 <img src={eagle} alt='eagle'/>
             </div>
         </div>

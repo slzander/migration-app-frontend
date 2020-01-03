@@ -8,22 +8,7 @@ import buttonGray from '../images/buttonGray.png'
 import buttonYellow from '../images/buttonYellow.png'
 
 
-export default function ViewMap ({ mappedBirds, currentMonth, changePause, pauseClicked }) {
-    // const months = [
-    //     'January',
-    //     'February',
-    //     'March',
-    //     'April',
-    //     'May',
-    //     'June',
-    //     'July',
-    //     'August',
-    //     'September',
-    //     'October',
-    //     'November',
-    //     'December'
-    // ]
-
+export default function ViewMap ({ mappedBirds, currentMonth }) {
     function showBirds () {
         return mappedBirds.map(bird => {
             if (bird.name === 'Upland Sandpiper'){
@@ -84,27 +69,10 @@ export default function ViewMap ({ mappedBirds, currentMonth, changePause, pause
             }
         })
     }
- 
-    // function showMonth () {
-    //     if (mappedBirds.length !== 0){
-    //         return (
-    //             <div id='show-month-div'>
-    //                 <h2>{months[currentMonth]}</h2>
-    //                 <button onClick={changePause}>
-    //                     {pauseClicked ? 'Stop Migration': 'Start Migration'}
-    //                 </button>
-    //             </div>
-    //         )
-    //     }
-    // }
 
     return(
-        <div>
-            {/* <div id='map-header'>
-                <h2>-</h2>
-                {showMonth()}
-            </div> */}
-            <Map id='map' center={[10, -80]} zoom={3}>
+
+            <Map id='map' center={[15, -85]} zoom={3}>
                 <TileLayer
                     url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
                     attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
@@ -113,6 +81,5 @@ export default function ViewMap ({ mappedBirds, currentMonth, changePause, pause
                 />
                 {showBirds()}
             </Map>
-        </div>
     )
 }
