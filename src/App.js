@@ -1,10 +1,10 @@
 import React from 'react'
 import './App.scss'
-// import * as d3 from 'd3';
 import ViewMap from './components/ViewMap'
 import Header from './components/Header'
 import CardContainer from './components/CardContainer'
 import About from './components/About'
+
 const baseURL = 'http://localhost:3000'
 
 export default class App extends React.Component {
@@ -13,17 +13,22 @@ export default class App extends React.Component {
     mappedBirds: [],
     selectedOption: null,
     month: 0,
-    aboutClicked: false,
+    aboutClicked: true,
     pauseClicked: false,
-    intervalID: 0,
-    cardColor: 'lightblue'
+    intervalID: 0
   }
   
   componentDidMount(){
     fetch(`${baseURL}/birds`)
-      .then(response => response.json())
-      .then(birdData => this.setState({ birdData }))
+    .then(response => response.json())
+    .then(birdData => this.setState({ 
+      birdData,
+      mappedBirds: birdData.filter(bird => {
+        return bird.on_map
+      })
+    }))
   }
+
 
   changeMonth = () => {
     if (this.state.month < 11){
@@ -71,7 +76,7 @@ export default class App extends React.Component {
       addAllBirds={this.addAllBirds}
       removeAllBirds={this.removeAllBirds}
       addFilteredBirds={this.addFilteredBirds}
-      removeFilteredBirds={this.removeFilteredBirds} />
+      mappedBirds={this.state.mappedBirds} />
     } else {
       return <About />
     }
@@ -112,14 +117,15 @@ export default class App extends React.Component {
   }
 
   addFilteredBirds = () => {
-    this.setState({ mappedBirds: this.filterBirds() })
-    // this.setState({ mappedBirds: [...this.state.mappedBirds, this.filterBirds()] })
+    this.setState({ mappedBirds: [...this.state.mappedBirds, ...this.filterBirds()] })
   }
 
-  removeFilteredBirds = () => {
-    console.log(this.state.mappedBirds.includes(this.filterBirds()))
-    this.setState({ mappedBirds: [] })
-  }
+  // removeFilteredBirds = () => {
+  //   console.log(this.filterBirds())
+  //   if (this.state.mappedBirds.includes(this.filterBirds())){
+  //     this.setState({ mappedBirds: ??? })
+  //   }
+  // }
 
   filterChange = (selectedOption) => {
     if(selectedOption.label === 'Select All'){
@@ -137,6 +143,22 @@ export default class App extends React.Component {
     } else {
       return this.state.birdData
     }
+  }
+
+  componentDidUpdate(){
+    this.updateOnMap()
+  }
+
+    updateOnMap = () => {
+      fetch(`${baseURL}/birds/33`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          mappedBirds: this.state.mappedBirds.map(bird => bird.id)
+        })
+      })  
   }
 
   render(){

@@ -1,32 +1,17 @@
 import React from 'react'
 
-export default class  BirdCard extends React.Component {
-    state = {
-        cardColor: '#5c86b5'
-    }
-    
-    changeCardColor = () => {
-        if(this.state.cardColor === '#5c86b5'){
-            this.setState({ cardColor: 'rgb(155, 130, 99)' })
-        } else {
-            this.setState({ cardColor: '#5c86b5' })
-        }
-    }
-
-    render() {
+export default function BirdCard ({ bird, birdAction, onMap }) {
         return(
             <div 
                 className='bird-card'
-                style={{backgroundColor: this.state.cardColor}}
+                style={ onMap ? null : {backgroundColor: 'rgb(146, 141, 135)'} }
                 onClick={() => {
-                    this.props.birdAction(this.props.bird)
-                    this.changeCardColor()
+                    birdAction(bird)
                 }}
             >
-                <h2>{this.props.bird.name}</h2>
-                <p>{this.props.bird.species}</p>
-                <p>ID Tag#: {this.props.bird.tag}</p>
+                <h2>{bird.name}</h2>
+                <p>{bird.species}</p>
+                <p>ID Tag#: {bird.tag}</p>
             </div>
         )
-    }
 }

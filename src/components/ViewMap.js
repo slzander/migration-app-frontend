@@ -84,11 +84,11 @@ export default function ViewMap ({ mappedBirds, currentMonth, changePause, pause
     function showMonth () {
         if (mappedBirds.length !== 0){
             return (
-                <div>
+                <div id='show-month-div'>
                     <h2>{months[currentMonth]}</h2>
-                <button onClick={changePause}>
-                    {pauseClicked ? 'pause': 'play'}
-                </button>
+                    <button onClick={changePause}>
+                        {pauseClicked ? 'Stop Migration': 'Start Migration'}
+                    </button>
                 </div>
             )
         }
@@ -96,7 +96,10 @@ export default function ViewMap ({ mappedBirds, currentMonth, changePause, pause
 
     return(
         <div>
-            {showMonth()}
+            <div id='map-header'>
+                <h2>-</h2>
+                {showMonth()}
+            </div>
             <Map id='map' center={[10, -80]} zoom={3}>
                 <TileLayer
                     url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'

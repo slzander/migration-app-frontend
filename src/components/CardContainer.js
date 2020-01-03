@@ -11,15 +11,20 @@ export default function CardContainer({
     addAllBirds, 
     removeAllBirds, 
     addFilteredBirds,
-    removeFilteredBirds
+    mappedBirds
     }) {
 
     const birdsArray = birdData.map(bird => {
-        return <BirdCard
+        return mappedBirds.includes(bird) ? 
+         <BirdCard
             key={bird.id}
             bird={bird}
-            birdAction={birdAction}
-            changeCardColor={changeCardColor} />
+            birdAction={birdAction} />
+        : <BirdCard
+        key={bird.id}
+        bird={bird}
+        birdAction={birdAction}
+        onMap={true} />
     })
 
     const birdSpecies = [
@@ -34,20 +39,20 @@ export default function CardContainer({
         <div id='card-container'>
             <div id='card-header'>
                 <div className='card-buttons'>
-                    <div id='filter-buttons'>
-                        <button onClick={addFilteredBirds}>
-                            Add Filtered Birds
-                        </button>
-                        <button onClick={removeFilteredBirds}>
-                            Remove Filtered Birds
-                        </button>
-                    </div>
                     <div id='select-div'>
                     <Select
                         options={birdSpecies}
                         value={selectedOption}
                         onChange={filterChange}
                         placeholder='Filter by Species...' />
+                    </div>
+                    <div id='filter-buttons'>
+                        <button onClick={addFilteredBirds}>
+                            Add Filtered Birds
+                        </button>
+                        {/* <button onClick={removeFilteredBirds}>
+                            Remove Filtered Birds
+                        </button> */}
                     </div>
                 </div>
                 <div className='card-buttons'>
