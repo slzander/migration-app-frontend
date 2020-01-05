@@ -14,6 +14,8 @@ https://www.youtube.com/watch?v=cQpGNGBwHVY&feature=youtu.be
 **Stack:**
 
   * Ruby/Rails
+  
+  * SCSS styling
 
   * JavaScript
 
