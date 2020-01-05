@@ -74,10 +74,6 @@ header {
   }
 }
 
-body {
-  overflow: hidden;
-}
-
 main {
   display: flex;
   flex-direction: row;
@@ -86,7 +82,7 @@ main {
   #card-container {
     background-color: #113661;
     padding: 1rem;
-    height: 60rem;
+    height: 51rem;
     width: 52.5rem;
 
     #card-header {
@@ -143,7 +139,7 @@ main {
     align-content: flex-start;
     background-color: #113661;
     padding: 1rem;
-    height: 60rem;
+    height: 51rem;
     width: 52.5rem;
 
     .about-cards {
@@ -151,7 +147,7 @@ main {
       padding-left: 10px;
       margin: 1rem;
       margin-right: 0.8rem;
-      height: 40%;
+      height: 46%;
       width: 46%;
 
       img {
