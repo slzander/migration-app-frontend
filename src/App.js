@@ -5,8 +5,8 @@ import Header from './components/Header'
 import CardContainer from './components/CardContainer'
 import About from './components/About'
 
-// const baseURL = 'https://migration-mapper.herokuapp.com'
-const baseURL = 'http://localhost:3000'
+const baseURL = 'https://migration-mapper.herokuapp.com'
+// const baseURL = 'http://localhost:3000'
 
 export default class App extends React.Component {
   state = {
