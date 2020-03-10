@@ -22,7 +22,7 @@ export default function ViewMap ({ mappedBirds, currentMonth }) {
                         iconSize: [15, 15],
                         iconAnchor: [10, 10]
                     })}>
-                    <Popup>{bird.name}<br />{bird.tag}</Popup>
+                    <Popup>{bird.name}<br />Tag#: {bird.tag}</Popup>
                 </Marker>
             } else if (bird.name === 'Grasshopper Sparrow'){
                 return <Marker
@@ -36,7 +36,7 @@ export default function ViewMap ({ mappedBirds, currentMonth }) {
                         iconSize: [15, 15],
                         iconAnchor: [10, 10]
                         })}>
-                    <Popup>{bird.name}<br />{bird.tag}</Popup>
+                    <Popup>{bird.name}<br />Tag#: {bird.tag}</Popup>
                 </Marker>
             } else if (bird.name === 'Golden Eagle'){
                 return <Marker 
@@ -50,7 +50,7 @@ export default function ViewMap ({ mappedBirds, currentMonth }) {
                         iconSize: [15, 15],
                         iconAnchor: [10, 10]
                         })}>
-                    <Popup>{bird.name}<br />{bird.tag}</Popup>
+                    <Popup>{bird.name}<br />Tag#: {bird.tag}</Popup>
                 </Marker>
             } else {
                 return <Marker
