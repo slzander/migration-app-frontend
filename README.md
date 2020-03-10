@@ -1,4 +1,8 @@
 ## Welcome to Migration Mapper!
+
+https://migration-mapper.firebaseapp.com/
+
+
 **This is a locational mapping app for researchers who want to be able to visualize annual movements of migratory species for the purpose of data analysis or project presentations.**
 
 Created by Stacey Zander.
@@ -14,6 +18,8 @@ https://www.youtube.com/watch?v=cQpGNGBwHVY&feature=youtu.be
 **Stack:**
 
   * Ruby/Rails
+  
+  * SCSS styling
 
   * JavaScript
 
