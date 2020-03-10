@@ -11,6 +11,10 @@
     font-size: 14px;
     background-color: white;
   }
+
+  button:hover {
+    background-color: #ebebeb;
+  }
 }
 
 header {
@@ -21,7 +25,9 @@ header {
   top: 0;
   width: 100%;
   z-index: 10;
-  background-color: #c7c6c4;
+  background-color: #b5b2ae;
+  // background-color: #b5b5b5;
+  // background-color: #c7c6c4;
   box-shadow: 0 5px 20px -10px #000;
 
   #logo {
@@ -123,11 +129,15 @@ main {
         padding-left: 13px;
         width: 15.5rem;
         height: 9rem;
-        background-color: #4371a7;
+        background-color: #7694b3;
 
         h2 {
           font-size: 22px;
         }
+      }
+
+      .bird-card:hover {
+        opacity: 0.7
       }
     } 
   }

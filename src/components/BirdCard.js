@@ -4,7 +4,7 @@ export default function BirdCard ({ bird, birdAction, onMap }) {
         return(
             <div 
                 className='bird-card'
-                style={ onMap ? null : {backgroundColor: 'rgb(146, 141, 135)'} }
+                style={ onMap ? null : {backgroundColor: '#b5b5b5'} }
                 onClick={() => {
                     birdAction(bird)
                 }}
