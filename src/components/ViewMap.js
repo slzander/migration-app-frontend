@@ -71,7 +71,6 @@ export default function ViewMap ({ mappedBirds, currentMonth }) {
     }
 
     return(
-
             <Map id='map' center={[15, -85]} zoom={3}>
                 <TileLayer
                     url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'

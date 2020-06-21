@@ -5,8 +5,8 @@ import Header from './components/Header'
 import CardContainer from './components/CardContainer'
 import About from './components/About'
 
-const baseURL = 'https://migration-mapper.herokuapp.com'
-// const baseURL = 'http://localhost:3000'
+// const baseURL = 'https://migration-mapper.herokuapp.com'
+const baseURL = 'http://localhost:3000'
 
 export default class App extends React.Component {
   state = {
@@ -30,15 +30,6 @@ export default class App extends React.Component {
     }))
   }
 
-
-  changeMonth = () => {
-    if (this.state.month < 11){
-      this.setState({ month: this.state.month + 1})
-    } else {
-      this.setState({ month: 0 })
-    }
-  }
-
   changeAboutClicked = () => {
     if (this.state.aboutClicked){
       this.setState({ aboutClicked: false })
@@ -46,6 +37,14 @@ export default class App extends React.Component {
       this.setState({ aboutClicked: true})
     }
     return this.showView
+  }
+
+  changeMonth = () => {
+    if (this.state.month < 11){
+      this.setState({ month: this.state.month + 1})
+    } else {
+      this.setState({ month: 0 })
+    }
   }
 
   startMonthChange = () => {
@@ -142,16 +141,16 @@ export default class App extends React.Component {
     this.updateOnMap()
   }
 
-    updateOnMap = () => {
-      fetch(`${baseURL}/birds/33`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          mappedBirds: this.state.mappedBirds.map(bird => bird.id)
-        })
-      })  
+  updateOnMap = () => {
+    fetch(`${baseURL}/birds/1`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        mappedBirds: this.state.mappedBirds.map(bird => bird.id)
+      })
+    })  
   }
 
   render(){
