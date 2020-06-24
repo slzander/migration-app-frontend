@@ -93,19 +93,6 @@ export default class App extends React.Component {
     }
   }
 
-  addBirdToMap = (bird) => {
-    if (!this.state.mappedBirds.includes(bird)){
-      this.setState({ mappedBirds: [...this.state.mappedBirds, bird] })
-    }
-  }
-
-  removeBirdFromMap = (bird) => {
-    const mappedBirds = this.state.mappedBirds.filter(mappedBird => {
-      return mappedBird !== bird
-    })
-    this.setState({ mappedBirds })
-  }
-
   addAllBirds = () => {
     this.setState({ mappedBirds: this.state.birdData })
   }
