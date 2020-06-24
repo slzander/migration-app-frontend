@@ -84,9 +84,7 @@ export default class App extends React.Component {
   
   addOrRemoveBird = (bird) => {
     if (!this.state.mappedBirds.includes(bird)){
-      if (!this.state.mappedBirds.includes(bird)){
-        this.setState({ mappedBirds: [...this.state.mappedBirds, bird] })
-      }
+      this.setState({ mappedBirds: [...this.state.mappedBirds, bird] })
     } else {
       const mappedBirds = this.state.mappedBirds.filter(mappedBird => {
         return mappedBird !== bird
