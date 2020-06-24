@@ -5,8 +5,8 @@ import Header from './components/Header'
 import CardContainer from './components/CardContainer'
 import About from './components/About'
 
-// const baseURL = 'https://migration-mapper.herokuapp.com'
-const baseURL = 'http://localhost:3000'
+const baseURL = 'https://migration-mapper.herokuapp.com'
+// const baseURL = 'http://localhost:3000'
 
 export default class App extends React.Component {
   state = {
@@ -23,7 +23,7 @@ export default class App extends React.Component {
     fetch(`${baseURL}/birds`)
     .then(response => response.json())
     .then(birdData => this.setState({ 
-      birdData,
+      birdData: birdData.sort((a,b) => a.id - b.id),
       mappedBirds: birdData.filter(bird => {
         return bird.on_map
       })
@@ -138,7 +138,6 @@ export default class App extends React.Component {
   }
 
   componentDidUpdate(){
-    console.log('component updated!!!!!!!!!')
     this.updateOnMap()
   }
 
