@@ -48,12 +48,13 @@ export default class App extends React.Component {
   }
 
   startMonthChange = () => {
-    this.intervalID = setInterval(this.changeMonth, 1000)
+    const intervalID = setInterval(this.changeMonth, 1000)
+    this.setState({ intervalID })
     this.setState({ pauseClicked: true })
   }
 
   stopMonthChange = () => {
-    clearInterval(this.intervalID)
+    clearInterval(this.state.intervalID)
     this.setState({ pauseClicked: false})
   }
 
